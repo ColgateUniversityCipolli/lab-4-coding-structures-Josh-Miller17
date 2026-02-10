@@ -112,11 +112,29 @@ head(df)
 ## Part c
 Ask for the column `x1`.
 
+solution:
+```{r}
+#| size: "scriptsize"
+df[, "x1"]
+```
+
 ## Part d
 Ask for the fifth row of the data frame.
 
+Solution:
+```{r}
+#| size: "scriptsize"
+df[5, ]
+```
+
 ## Part e
 Ask for the the value of `x1` in the fifth row of the data frame.
+
+Solution:
+```{r}
+#| size: "scriptsize"
+df[5, "x1"]
+```
 
 ## Part f
 Ask for the the value of in the third column and the fifth row of the data frame.
