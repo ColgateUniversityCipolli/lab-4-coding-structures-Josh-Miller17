@@ -139,8 +139,20 @@ df[5, "x1"]
 ## Part f
 Ask for the the value of in the third column and the fifth row of the data frame.
 
+Solution:
+```{r}
+#| size: "scriptsize"
+df[5, 3]
+```
+
 ## Part g
 Create a sequence from 1 to 10 by 2 and use it to print the odd rows of the data frame.
+
+```{r}
+#| size: "scriptsize"
+odds <- seq(1, 10, by = 2)
+df[odds, ]
+```
 
 ## Part h
 Below, I create an empty column called `x12`. Fill in the details of the `for(...)` loop to ensure `x12` is the product of `x1` and `x2`.
