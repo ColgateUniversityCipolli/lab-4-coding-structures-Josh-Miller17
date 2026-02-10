@@ -215,6 +215,14 @@ in part j, I did not need to use a for loop. (seen above)
 
 Install and load the `rvest` package [@rvest].
 
+Solution:
+```{r}
+#| size: "scriptsize"
+install.packages("rvest")
+library("rvest")
+```
+
+
 ## Part b
 
 Load the html of the `website/KimchiGrilledCheese.html` using the `read_html()` function. We will use the Kimchi Grilled Cheese recipe as our prototype and extend this workflow to all recipes, so try to be as general as possible. If you do look at it, you'll notice it contains the html we saw in the developer tools in class.<br/>
