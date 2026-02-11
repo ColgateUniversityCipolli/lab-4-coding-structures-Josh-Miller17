@@ -106,7 +106,7 @@ Use the `head(...)` function to peek at the data frame.
 solution:
 ```{r}
 #| size: "scriptsize"
-head(df)
+head(df) # used head function to get first few rows
 ```
 
 ## Part c
@@ -115,7 +115,7 @@ Ask for the column `x1`.
 solution:
 ```{r}
 #| size: "scriptsize"
-df[, "x1"]
+df[, "x1"] # got vector of x1 column
 ```
 
 ## Part d
@@ -124,7 +124,7 @@ Ask for the fifth row of the data frame.
 Solution:
 ```{r}
 #| size: "scriptsize"
-df[5, ]
+df[5, ] # got vector of fifth row of df
 ```
 
 ## Part e
@@ -133,7 +133,7 @@ Ask for the the value of `x1` in the fifth row of the data frame.
 Solution:
 ```{r}
 #| size: "scriptsize"
-df[5, "x1"]
+df[5, "x1"] # got the value of x1 in fifth row
 ```
 
 ## Part f
@@ -142,7 +142,7 @@ Ask for the the value of in the third column and the fifth row of the data frame
 Solution:
 ```{r}
 #| size: "scriptsize"
-df[5, 3]
+df[5, 3] # got value of fifth row, column 3
 ```
 
 ## Part g
@@ -150,8 +150,8 @@ Create a sequence from 1 to 10 by 2 and use it to print the odd rows of the data
 
 ```{r}
 #| size: "scriptsize"
-odds <- seq(1, 10, by = 2)
-df[odds, ]
+odds <- seq(1, 10, by = 2) # created sequence 
+df[odds, ] # printed sequence
 ```
 
 ## Part h
@@ -161,7 +161,7 @@ Below, I create an empty column called `x12`. Fill in the details of the `for(..
 n <- nrow(df)                # How many rows to we have to fill?
 df$x12 <- rep(NA, nrow(df))   # Create an empty column for x12
 for(i in 1:nrow(df)){
-  df$x12[i] <- df$x1[i] * df$x2[i]
+  df$x12[i] <- df$x1[i] * df$x2[i] # created the values for column x12
 }
 ```
 
@@ -175,12 +175,12 @@ Solution
 #| size: "scriptsize"
 calculate.score <- function(x1, x2, x3) {
   score <- (2 * x1) + x2 - x3
-  return(score)}
+  return(score)} # created the calc.score function
 
 n <- nrow(df)                # How many rows to we have to fill?
 total.score <- rep(NA, nrow(df))   # Create an empty column for x12
 for(i in 1:nrow(df)){
-  df$total.score[i] <- calculate.score(df$x1[i], df$x3[i], df$x3[i]) }
+  df$total.score[i] <- calculate.score(df$x1[i], df$x3[i], df$x3[i]) } # used a for loop to fill total.score column
 ```
 
 ## Part j
@@ -218,8 +218,8 @@ Install and load the `rvest` package [@rvest].
 Solution:
 ```{r}
 #| size: "scriptsize"
-install.packages("rvest")
-library("rvest")
+install.packages("rvest") # installed rvest
+library("rvest") # loaded rvest
 ```
 
 
@@ -231,7 +231,7 @@ Load the html of the `website/KimchiGrilledCheese.html` using the `read_html()` 
 Solution:
 ```{r}
 #| size: "scriptsize"
-html <- read_html("website/KimchiGrilledCheese.html")
+html <- read_html("website/KimchiGrilledCheese.html") # loaded the html and saved it as an object called html
 ```
 
 ## Part c
@@ -244,7 +244,7 @@ Find the name of the Ingredients section of the website and pull the HTML of the
 Solution:
 ```{r}
 #| size: "scriptsize"
-ingredients.section <- html_element(html, "#ingredients")
+ingredients.section <- html_element(html, "#ingredients") # created object called ingredients.section which pulled the html of the ingredients section
 ```
 
 ## Part d
@@ -254,7 +254,7 @@ Now, we want to obtain all of the itemized items. Find the element type the indi
 Solution:
 ```{r}
 #| size: "scriptsize"
-ingredients <- html_elements(ingredients.section, "li")
+ingredients <- html_elements(ingredients.section, "li") # created object called ingredients which pulled the items of the ingredients section
 ```
 
 ## Part e
@@ -263,7 +263,7 @@ Similar to Part c. Find the name of the Instructions section of the website and 
 Solution:
 ```{r}
 #| size: "scriptsize"
-instructions.section <- html_element(html, "#instructions")
+instructions.section <- html_element(html, "#instructions") # created object called instructions.section which pulled the html of the instructions section
 ```
 
 ## Part f
@@ -272,7 +272,7 @@ Now, we want to obtain all of the enumerated items. Find the element type the in
 Solution:
 ```{r}
 #| size: "scriptsize"
-instructions <- html_elements(instructions.section, "li")
+instructions <- html_elements(instructions.section, "li") # created object called instructions which pulled the items of the instructions section
 ```
 
 ## Part g
@@ -282,12 +282,20 @@ Find the class of the recipe image and pull the HTML using `html_element(...)` a
 Solution:
 ```{r}
 #| size: "scriptsize"
-image.element <- html_element(html, ".quarto-figure")
+image.element <- html_element(html, ".quarto-figure") # created object called image.element which pulled the html of the image
 ```
 
 ## Part h
 Use the `html_attr(...)` function to pull the source link ("src"). Then, use `paste(...)` to prepend the source link with "website/" so we have the full link.<br/>
 **Note**: This would be like adding "https://www.website.com" to get the absolute link.
+
+Solution
+```{r}
+#| size: "scriptsize"
+image <- html_element(image.element, "img") # got the image tag using the image type and the object created in part g
+sourcelink <- html_attr(image, "src") # pulled the source link for the image and saved it as an object
+link <- paste("website/", sourcelink, sep = "") # created the full link as an object using the paste function
+```
 
 ## Part i
 Now that we have all the things we need, let's try to print the recipe. Below, I have written code to print from the objects. One by one, remove `#| eval: false` from the YAML header and add `#| echo: false` and `#| results: 'asis'`, and test. Let me know if you're stuck!
