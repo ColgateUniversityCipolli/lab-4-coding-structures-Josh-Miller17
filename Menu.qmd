@@ -82,7 +82,26 @@ dinner <- c("website/AfricanPeanutSoup.html",
             "website/RedWineRagu.html",
             "website/SalmonChowder.html",
             "website/Shakshuka.html")
+
+
+# create a for loop which takes the  image, ingredients, and instructions for each selected recipe. Used last doc as a reference.
+
+# Combined all of the ingredients into a grocery list on the first page.
+
+# Print the image, ingredients, and instructions for each receipe on the subsequent pages
 ```
+
+```{r}
+#| size: "scriptsize"
+#| include: false
+# Created function to randomly select 3 dinner recepies and 1 breakfast recepie.
+
+chosen.breakfast <- sample(breakfasts, 1) # chose random breakfast from vector
+chosen.dinners   <- sample(dinner, 3) # chose 3 random dinners from vector
+
+chosen.recepies <- c(chosen.breakfast, chosen.dinners) #created vector with all chosen breakfasts and dinners.
+```
+
 
 # Ingredients
 
@@ -101,3 +120,5 @@ dinner <- c("website/AfricanPeanutSoup.html",
 \newpage
 
 # Breakfast Recipe
+
+
