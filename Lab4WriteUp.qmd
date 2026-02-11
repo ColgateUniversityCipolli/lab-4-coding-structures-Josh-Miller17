@@ -279,6 +279,12 @@ instructions <- html_elements(instructions.section, "li")
 Find the class of the recipe image and pull the HTML using `html_element(...)` and save the results to an object called `image.element`. <br/>
 **Hint**: You can ask for elements by class using a preceeding ".". See `?html_element(...)` for a helpful example. Further, note that HTML elements may have more than one class (separated by a space). When that is the case, you need to choose one.
 
+Solution:
+```{r}
+#| size: "scriptsize"
+image.element <- html_element(html, ".quarto-figure")
+```
+
 ## Part h
 Use the `html_attr(...)` function to pull the source link ("src"). Then, use `paste(...)` to prepend the source link with "website/" so we have the full link.<br/>
 **Note**: This would be like adding "https://www.website.com" to get the absolute link.
