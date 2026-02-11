@@ -218,7 +218,7 @@ Install and load the `rvest` package [@rvest].
 Solution:
 ```{r}
 #| size: "scriptsize"
-install.packages("rvest") # installed rvest
+# install.packages("rvest") # installed rvest
 library("rvest") # loaded rvest
 ```
 
@@ -294,7 +294,7 @@ Solution
 #| size: "scriptsize"
 image <- html_element(image.element, "img") # got the image tag using the image type and the object created in part g
 sourcelink <- html_attr(image, "src") # pulled the source link for the image and saved it as an object
-link <- paste("website/", sourcelink, sep = "") # created the full link as an object using the paste function
+image.url <- paste("website/", sourcelink, sep = "") # created the full link as an object using the paste function
 ```
 
 ## Part i
@@ -303,7 +303,8 @@ Now that we have all the things we need, let's try to print the recipe. Below, I
 **Image**
 
 ```{r}
-#| eval: false
+#| echo: false
+#| results: 'asis'
 # width="50%" shrinks the image for printing
 cat(paste('<img src="', image.url, '" style="width: 50%; height: auto;">'))
 ```
@@ -311,7 +312,8 @@ cat(paste('<img src="', image.url, '" style="width: 50%; height: auto;">'))
 **Ingredients**
 
 ```{r}
-#| eval: false
+#| echo: false
+#| results: 'asis'
 formatted_list <- paste("-", html_text(ingredients))
 cat(formatted_list, sep = "\n")
 ```
@@ -319,7 +321,8 @@ cat(formatted_list, sep = "\n")
 **Instructions**
 
 ```{r}
-#| eval: false
+#| echo: false
+#| results: 'asis'
 formatted_list <- paste("1.", html_text(instructions))
 cat(formatted_list, sep = "\n")
 ```
