@@ -83,12 +83,6 @@ dinner <- c("website/AfricanPeanutSoup.html",
             "website/SalmonChowder.html",
             "website/Shakshuka.html")
 
-
-# create a for loop which takes the  image, ingredients, and instructions for each selected recipe. Used last doc as a reference.
-
-# Combined all of the ingredients into a grocery list on the first page.
-
-# Print the image, ingredients, and instructions for each receipe on the subsequent pages
 ```
 
 ```{r}
@@ -99,26 +93,123 @@ dinner <- c("website/AfricanPeanutSoup.html",
 chosen.breakfast <- sample(breakfasts, 1) # chose random breakfast from vector
 chosen.dinners   <- sample(dinner, 3) # chose 3 random dinners from vector
 
-chosen.recepies <- c(chosen.breakfast, chosen.dinners) #created vector with all chosen breakfasts and dinners.
+chosen.vector <- c(chosen.breakfast, chosen.dinners) #created vector with all chosen breakfasts and dinners.
 ```
 
+```{r}
+#| size: "scriptsize"
+#| include: false
+library("rvest") # loaded the library "rvest"
+```
+
+```{r}
+#| echo: false
+#| results: 'asis'
+all.ingredients <- c() # create an empty vector for the ingredients list for later
+
+all.ing <- list() # created an empty list of ingredients for each recepie to be printed later
+all.ins <- list() # created an empty list of instructions for each recepie to be printed later
+images <- c() # created empty vector of images for each recepie to be printed later
+
+for (i in 1:length(chosen.vector)){
+  html <- read_html(chosen.vector[i])
+
+  ingredients.section <- html_element(html, "#ingredients") # created object called ingredients.section which pulled the html of the ingredients section
+  ingredients <- html_elements(ingredients.section, "li") # created object called ingredients which pulled the items of the ingredients section
+  ingredients.text <- html_text(ingredients) # printed text of the ingredients (check line 317 of lab4WriteUp)
+  all.ingredients <- c(all.ingredients, ingredients.text) # appended empty vector of all ingredients to be printed in ingredients section
+  all.ing[[i]] <- ingredients.text
+
+  instructions.section <- html_element(html, "#instructions") # created object called instructions.section which pulled the html of the instructions section
+  instructions <- html_elements(instructions.section, "li") # created object called instructions which pulled the items of the instructions section
+  instructions.text <- html_text(instructions) # printed text of the instructions (check line 317 of lab4WriteUp)
+  all.ins[[i]] <- instructions.text
+
+  image.element <- html_element(html, ".quarto-figure") # created object called image.element which pulled the html of the image
+  image <- html_element(image.element, "img") # got the image tag using the image type and the object
+  sourcelink <- html_attr(image, "src") # pulled the source link for the image and saved it as an object
+  images[i] <- paste("website/", sourcelink, sep = "") # created the full link as an object using the paste function
+}
+```
 
 # Ingredients
+
+```{r}
+#| echo: false
+#| results: 'asis'
+
+unique.ingredients <- unique(all.ingredients) # creates a vector using all.ingredients, but only uses unique ingredients
+
+for(item in unique.ingredients){
+  cat("- ", item, "\n") # prints unique items vector in a list form.
+}
+```
 
 \newpage
 
 # Recipe One
 
+```{r}
+#| echo: false
+#| results: 'asis'
+
+cat(paste('<img src="', images[1], '" style="width: 50%; height: auto;">')) # print image for recepie 1
+
+  cat("\n\n## Instructions\n\n") # added subheader
+  cat(paste("-", all.ing[[1]], sep = "\n")) # print ingredients list for recepie 1
+
+  cat("\n\n## Instructions\n\n") # added subheader
+  cat(paste("1.", all.ins[[1]], sep = "\n")) # print ingredients list for recepie 1
+```
+
 \newpage
 
 # Recipe Two
+
+```{r}
+#| echo: false
+#| results: 'asis'
+
+cat(paste('<img src="', images[2], '" style="width: 50%; height: auto;">')) # print image for recepie 2
+
+  cat("\n\n## Instructions\n\n") # added subheader
+  cat(paste("-", all.ing[[2]], sep = "\n")) # print ingredients list for recepie 2
+
+  cat("\n\n## Instructions\n\n") # added subheader
+  cat(paste("1.", all.ins[[2]], sep = "\n")) # print ingredients list for recepie 2
+```
 
 \newpage
 
 # Recipe Three
 
+```{r}
+#| echo: false
+#| results: 'asis'
+
+cat(paste('<img src="', images[3], '" style="width: 50%; height: auto;">')) # print image for recepie 3
+
+  cat("\n\n## Instructions\n\n") # added subheader
+  cat(paste("-", all.ing[[3]], sep = "\n")) # print ingredients list for recepie 3
+
+  cat("\n\n## Instructions\n\n") # added subheader
+  cat(paste("1.", all.ins[[3]], sep = "\n")) # print ingredients list for recepie 3
+```
+
 \newpage
 
 # Breakfast Recipe
 
+```{r}
+#| echo: false
+#| results: 'asis'
+
+cat(paste('<img src="', images[4], '" style="width: 50%; height: auto;">')) # print image for recepie 4
+
+  cat("\n\n## Instructions\n\n") # added subheader
+  cat(paste("-", all.ing[[4]], sep = "\n")) # print ingredients list for recepie 4
+
+  cat("\n\n## Instructions\n\n") # added subheader
+  cat(paste("1.", all.ins[[4]], sep = "\n")) # print ingredients list for recepie 4
+```
 
