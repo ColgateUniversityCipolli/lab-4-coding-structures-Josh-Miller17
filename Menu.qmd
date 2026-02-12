@@ -113,6 +113,7 @@ images <- c() # created empty vector of images for each recepie to be printed la
 
 for (i in 1:length(chosen.vector)){
   html <- read_html(chosen.vector[i])
+  title <- html_element(html, "h1") |> html_text()
 
   ingredients.section <- html_element(html, "#ingredients") # created object called ingredients.section which pulled the html of the ingredients section
   ingredients <- html_elements(ingredients.section, "li") # created object called ingredients which pulled the items of the ingredients section
@@ -128,7 +129,8 @@ for (i in 1:length(chosen.vector)){
   image.element <- html_element(html, ".quarto-figure") # created object called image.element which pulled the html of the image
   image <- html_element(image.element, "img") # got the image tag using the image type and the object
   sourcelink <- html_attr(image, "src") # pulled the source link for the image and saved it as an object
-  images[i] <- sourcelink # created the full link as an object using the paste function
+  images[i] <- paste("website/", sourcelink, sep = "")
+ # created the full link as an object using the paste function
 }
 ```
 
@@ -147,18 +149,13 @@ for(item in unique.ingredients){
 
 \newpage
 
-```{r}
-#| size: "scriptsize"
-images
-```
-
 # Recipe One
 
 ```{r}
 #| echo: false
 #| results: 'asis'
 
-cat(paste('<img src="', images[1], '" style="width: 50%; height: auto;">'))
+cat(paste("![", title, "](", images[1], "){width=50%}\n\n", sep = ""))
  # print image for recepie 1
 
   cat("\n\n## Instructions\n\n") # added subheader
@@ -176,7 +173,7 @@ cat(paste('<img src="', images[1], '" style="width: 50%; height: auto;">'))
 #| echo: false
 #| results: 'asis'
 
-cat(paste('<img src="', images[2], '" style="width: 50%; height: auto;">'))
+cat(paste("![", title, "](", images[2], "){width=50%}\n\n", sep = ""))
  # print image for recepie 2
 
   cat("\n\n## Instructions\n\n") # added subheader
@@ -194,7 +191,7 @@ cat(paste('<img src="', images[2], '" style="width: 50%; height: auto;">'))
 #| echo: false
 #| results: 'asis'
 
-cat(paste('<img src="', images[3], '" style="width: 50%; height: auto;">'))
+cat(paste("![", title, "](", images[3], "){width=50%}\n\n", sep = ""))
  # print image for recepie 3
 
   cat("\n\n## Instructions\n\n") # added subheader
@@ -213,7 +210,7 @@ cat(paste('<img src="', images[3], '" style="width: 50%; height: auto;">'))
 #| results: 'asis'
 
 
-cat(paste('<img src="', images[4], '" style="width: 50%; height: auto;">'))
+cat(paste("![", title, "](", images[4], "){width=50%}\n\n", sep = ""))
  # print image for recepie 4
 
   cat("\n\n## Instructions\n\n") # added subheader
