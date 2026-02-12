@@ -147,13 +147,19 @@ for(item in unique.ingredients){
 
 \newpage
 
+```{r}
+#| size: "scriptsize"
+images
+```
+
 # Recipe One
 
 ```{r}
 #| echo: false
 #| results: 'asis'
 
-cat(paste('<img src="', images[1], '" style="width: 50%; height: auto;">')) # print image for recepie 1
+cat(paste('<img src="', images[1], '" style="width: 50%; height: auto;">'))
+ # print image for recepie 1
 
   cat("\n\n## Instructions\n\n") # added subheader
   cat(paste("-", all.ing[[1]], "\n")) # print ingredients list for recepie 1
@@ -170,7 +176,8 @@ cat(paste('<img src="', images[1], '" style="width: 50%; height: auto;">')) # pr
 #| echo: false
 #| results: 'asis'
 
-cat(paste('<img src="', images[2], '" style="width: 50%; height: auto;">')) # print image for recepie 2
+cat(paste('<img src="', images[2], '" style="width: 50%; height: auto;">'))
+ # print image for recepie 2
 
   cat("\n\n## Instructions\n\n") # added subheader
   cat(paste("-", all.ing[[2]], "\n")) # print ingredients list for recepie 2
@@ -187,7 +194,8 @@ cat(paste('<img src="', images[2], '" style="width: 50%; height: auto;">')) # pr
 #| echo: false
 #| results: 'asis'
 
-cat(paste('<img src="', images[3], '" style="width: 50%; height: auto;">')) # print image for recepie 3
+cat(paste('<img src="', images[3], '" style="width: 50%; height: auto;">'))
+ # print image for recepie 3
 
   cat("\n\n## Instructions\n\n") # added subheader
   cat(paste("-", all.ing[[3]], "\n")) # print ingredients list for recepie 3
@@ -204,7 +212,9 @@ cat(paste('<img src="', images[3], '" style="width: 50%; height: auto;">')) # pr
 #| echo: false
 #| results: 'asis'
 
-cat(paste('<img src="', images[4], '" style="width: 50%; height: auto;">')) # print image for recepie 4
+
+cat(paste('<img src="', images[4], '" style="width: 50%; height: auto;">'))
+ # print image for recepie 4
 
   cat("\n\n## Instructions\n\n") # added subheader
   cat(paste("-", all.ing[[4]], "\n")) # print ingredients list for recepie 4
