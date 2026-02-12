@@ -156,10 +156,10 @@ for(item in unique.ingredients){
 cat(paste('<img src="', images[1], '" style="width: 50%; height: auto;">')) # print image for recepie 1
 
   cat("\n\n## Instructions\n\n") # added subheader
-  cat(paste("-", all.ing[[1]], sep = "\n")) # print ingredients list for recepie 1
+  cat(paste("-", all.ing[[1]], "\n")) # print ingredients list for recepie 1
 
   cat("\n\n## Instructions\n\n") # added subheader
-  cat(paste("1.", all.ins[[1]], sep = "\n")) # print ingredients list for recepie 1
+  cat(paste("1.", all.ins[[1]], "\n")) # print ingredients list for recepie 1
 ```
 
 \newpage
@@ -173,10 +173,10 @@ cat(paste('<img src="', images[1], '" style="width: 50%; height: auto;">')) # pr
 cat(paste('<img src="', images[2], '" style="width: 50%; height: auto;">')) # print image for recepie 2
 
   cat("\n\n## Instructions\n\n") # added subheader
-  cat(paste("-", all.ing[[2]], sep = "\n")) # print ingredients list for recepie 2
+  cat(paste("-", all.ing[[2]], "\n")) # print ingredients list for recepie 2
 
   cat("\n\n## Instructions\n\n") # added subheader
-  cat(paste("1.", all.ins[[2]], sep = "\n")) # print ingredients list for recepie 2
+  cat(paste("1.", all.ins[[2]], "\n")) # print ingredients list for recepie 2
 ```
 
 \newpage
@@ -190,10 +190,10 @@ cat(paste('<img src="', images[2], '" style="width: 50%; height: auto;">')) # pr
 cat(paste('<img src="', images[3], '" style="width: 50%; height: auto;">')) # print image for recepie 3
 
   cat("\n\n## Instructions\n\n") # added subheader
-  cat(paste("-", all.ing[[3]], sep = "\n")) # print ingredients list for recepie 3
+  cat(paste("-", all.ing[[3]], "\n")) # print ingredients list for recepie 3
 
   cat("\n\n## Instructions\n\n") # added subheader
-  cat(paste("1.", all.ins[[3]], sep = "\n")) # print ingredients list for recepie 3
+  cat(paste("1.", all.ins[[3]], "\n")) # print ingredients list for recepie 3
 ```
 
 \newpage
@@ -207,9 +207,9 @@ cat(paste('<img src="', images[3], '" style="width: 50%; height: auto;">')) # pr
 cat(paste('<img src="', images[4], '" style="width: 50%; height: auto;">')) # print image for recepie 4
 
   cat("\n\n## Instructions\n\n") # added subheader
-  cat(paste("-", all.ing[[4]], sep = "\n")) # print ingredients list for recepie 4
+  cat(paste("-", all.ing[[4]], "\n")) # print ingredients list for recepie 4
 
   cat("\n\n## Instructions\n\n") # added subheader
-  cat(paste("1.", all.ins[[4]], sep = "\n")) # print ingredients list for recepie 4
+  cat(paste("1.", all.ins[[4]], "\n")) # print ingredients list for recepie 4
 ```
 
