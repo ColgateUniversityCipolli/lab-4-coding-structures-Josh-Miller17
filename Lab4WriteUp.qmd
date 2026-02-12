@@ -346,9 +346,15 @@ Read [https://www.scrapingbee.com/blog/is-web-scraping-legal/](Is Web Sraping Le
 ## Conditionals
 Did you use conditional statements in your code? If yes, how. If not, are there places you could have used them but did something else?
 
+Solution:
+I did not use any conditionals in my code for the menu. I could have used a conditional statement when making my total ingredients list on the first page of the menu. I could have made it so if an ingredient was already on the list, I could code it to not add it again.
+
 ## Loops
 Did you use loops in your code? If yes, how. If not, are there places you could have used them but did something else?
+
+I did use a for loop in my code to make so I wouldn't have to go through and create an ingredients, instructions, and image section for each recepie. Instead I created a vector of all the recepies and looped from the first one to the last one and created the three recepie parts for each inside the loop.
 
 ## Functions
 Did you use functions in your code? If yes, how. If not, are there places you could have used them but did something else?
 
+I did use functions inside my code for the menu, specifically the same ones we used in part two of the lab such as html_element, html_elements, html_text, html_attr, paste, and sample which I learned for the randomization element.
