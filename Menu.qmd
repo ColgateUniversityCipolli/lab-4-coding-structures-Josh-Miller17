@@ -128,7 +128,7 @@ for (i in 1:length(chosen.vector)){
   image.element <- html_element(html, ".quarto-figure") # created object called image.element which pulled the html of the image
   image <- html_element(image.element, "img") # got the image tag using the image type and the object
   sourcelink <- html_attr(image, "src") # pulled the source link for the image and saved it as an object
-  images[i] <- paste("website/", sourcelink, sep = "") # created the full link as an object using the paste function
+  images[i] <- sourcelink # created the full link as an object using the paste function
 }
 ```
 
